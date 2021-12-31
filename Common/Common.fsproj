@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="FileSystem.fs" />
+    <Compile Include="Default.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Util/FSharpUtil.fsproj" />
+  </ItemGroup>
+
+</Project>
