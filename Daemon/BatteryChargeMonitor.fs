@@ -22,9 +22,9 @@ let checkBatteryCharge() =
         Util.Process.executeNoOutput "suspend"
 
 let initTask() = async {
-    let timeout = System.TimeSpan.FromSeconds(30)
+    let timeout = System.TimeSpan.FromSeconds(30).TotalMilliseconds |> int
     while true do
         checkBatteryCharge()
-        do! Async.Sleep timeout.Milliseconds
+        do! Async.Sleep timeout
 }
 
