@@ -1,3 +1,3 @@
 #!/bin/bash
 
-dotnet publish --output ~/bin/LinuxUtil
+dotnet publish --output ~/bin/SystemUtil
