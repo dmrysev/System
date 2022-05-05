@@ -9,6 +9,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Daemon", "Daemon\Daemon.fsp
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SessionLock", "SessionLock\SessionLock.fsproj", "{621C1FB6-0AD9-4B3E-B1C8-75A8D2645E99}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SplitFolder", "SplitFolder\SplitFolder.fsproj", "{82F409E1-19A5-48C4-86F7-FCA62E78D0EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,5 +60,17 @@ Global
 		{621C1FB6-0AD9-4B3E-B1C8-75A8D2645E99}.Release|x64.Build.0 = Release|Any CPU
 		{621C1FB6-0AD9-4B3E-B1C8-75A8D2645E99}.Release|x86.ActiveCfg = Release|Any CPU
 		{621C1FB6-0AD9-4B3E-B1C8-75A8D2645E99}.Release|x86.Build.0 = Release|Any CPU
+		{82F409E1-19A5-48C4-86F7-FCA62E78D0EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82F409E1-19A5-48C4-86F7-FCA62E78D0EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82F409E1-19A5-48C4-86F7-FCA62E78D0EF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{82F409E1-19A5-48C4-86F7-FCA62E78D0EF}.Debug|x64.Build.0 = Debug|Any CPU
+		{82F409E1-19A5-48C4-86F7-FCA62E78D0EF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{82F409E1-19A5-48C4-86F7-FCA62E78D0EF}.Debug|x86.Build.0 = Debug|Any CPU
+		{82F409E1-19A5-48C4-86F7-FCA62E78D0EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82F409E1-19A5-48C4-86F7-FCA62E78D0EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82F409E1-19A5-48C4-86F7-FCA62E78D0EF}.Release|x64.ActiveCfg = Release|Any CPU
+		{82F409E1-19A5-48C4-86F7-FCA62E78D0EF}.Release|x64.Build.0 = Release|Any CPU
+		{82F409E1-19A5-48C4-86F7-FCA62E78D0EF}.Release|x86.ActiveCfg = Release|Any CPU
+		{82F409E1-19A5-48C4-86F7-FCA62E78D0EF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
