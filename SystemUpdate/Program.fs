@@ -10,7 +10,7 @@ type Data = {
 }
 
 let updateSystem () =
-    Util.Process.executeNoOutput "sudo pacman -Syu"
+    Util.Process.executeNoOutput "sudo pacman -S archlinux-keyring && sudo pacman -Syu"
     
 let getDataEntry dataFilePath =
     Util.IO.File.readAllLines dataFilePath
