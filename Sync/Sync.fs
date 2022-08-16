@@ -32,7 +32,7 @@ let copyMissingFilesToDestination (source: DirectoryPath) (destination: Director
     |> Seq.iter (fun relativeFilePath -> 
         let sourceFilePath = source/relativeFilePath
         let destFilePath = destination/relativeFilePath
-        Util.IO.Directory.create destFilePath.DirectoryPath
+        Util.IO.Directory.create (destFilePath |> FilePath.directoryPath)
         Util.IO.File.copy sourceFilePath destFilePath.Value)
      
 let run (sourceDirPath: DirectoryPath) (destinationDirPath: DirectoryPath) =

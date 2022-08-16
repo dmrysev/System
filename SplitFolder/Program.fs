@@ -10,7 +10,7 @@ let copyFilesChunk (destDirPath: DirectoryPath) (iteration: int) (filePaths: Fil
     let chunkDestDirPath = destDirPath/DirectoryName chunkDestDirName
     Util.IO.Directory.create chunkDestDirPath
     for filePath in filePaths do 
-        let destFilePath = chunkDestDirPath/filePath.FileName
+        let destFilePath = chunkDestDirPath/(filePath |> FilePath.fileName)
         Util.IO.File.copy filePath destFilePath.Value
 
 let rec splitFiles (filePaths: FilePath seq) (destDirPath: DirectoryPath) chunkSize iteration =
@@ -27,8 +27,9 @@ let rec splitFiles (filePaths: FilePath seq) (destDirPath: DirectoryPath) chunkS
 
 let run (opts: Options) = 
     let sourceDirPath = Util.IO.Path.realPath opts.Source |> DirectoryPath
-    let destinationDirName = $"{sourceDirPath.DirectoryName.Value}_split"
-    let destinationDirPath = sourceDirPath.SetHeadDirectoryName destinationDirName
+    let dirName = sourceDirPath |> DirectoryPath.directoryName
+    let destinationDirName = $"{dirName.Value}_split"
+    let destinationDirPath = sourceDirPath |> DirectoryPath.setHeadDirectoryName destinationDirName
     Util.IO.Directory.create destinationDirPath    
     let filePaths = 
         Util.Process.execute $"ls -vd '{sourceDirPath.Value}'/*"
