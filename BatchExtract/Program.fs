@@ -14,6 +14,7 @@ let run (opts: Options) =
     let outputDirPath = 
         if opts.Output <> "" then opts.Output |> Util.IO.Path.realPath |> DirectoryPath
         else sourceDirPath
+    Util.IO.Directory.ensureExists outputDirPath
     Util.IO.Directory.listFiles sourceDirPath
     |> Seq.iter(fun archiveFilePath ->
         let fileName = archiveFilePath |> FilePath.fileName |> FileName.withoutExtension |> FileName.value
