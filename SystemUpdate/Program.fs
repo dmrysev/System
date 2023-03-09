@@ -32,8 +32,10 @@ let needUpdate dataFilePath =
 let main argv =
     let appDataDirPath = Util.Environment.SpecialFolder.applicationData/DirectoryName "SystemUpdate"
     let dataFilePath = appDataDirPath/FileName "data.json"
-    if not <| Util.IO.Directory.exists appDataDirPath then Util.IO.Directory.create appDataDirPath
-    if needUpdate dataFilePath then
+    Util.IO.Directory.ensureExists appDataDirPath
+    let isForceUpdate =
+        ["--force"; "-force"; "-f"] |> Util.Seq.hasOverlap argv
+    if needUpdate dataFilePath || isForceUpdate then
         updateSystem()
         let data = { updateDateTime = System.DateTime.Now }
         setDataEntry dataFilePath data
