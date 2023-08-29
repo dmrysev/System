@@ -1,6 +1,6 @@
-module System.Daemon.BatteryChargeMonitor
+module SystemUtil.Daemon.BatteryChargeMonitor
 
-open System
+open SystemUtil
 open Util.IO.Path
 
 let checkBatteryCharge() =   

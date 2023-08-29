@@ -1,4 +1,4 @@
-﻿open System.Daemon
+﻿open SystemUtil.Daemon
 
 [BatteryChargeMonitor.initTask()]
 |> Async.Parallel

@@ -1,4 +1,4 @@
-module System.Common.Default
+module SystemUtil.Common.Default
 
 let Application = {|
     guiEditor = "code"

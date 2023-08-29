@@ -1,4 +1,4 @@
-module System.Sync
+module SystemUtil.Sync
 
 open Util.IO.Path
 
