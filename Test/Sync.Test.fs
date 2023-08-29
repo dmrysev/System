@@ -1,6 +1,6 @@
-module SystemUtil.Sync.Test
+module System.Sync.Test
 
-open SystemUtil
+open System
 open Util.IO.Path
 open NUnit.Framework
 open FsUnit

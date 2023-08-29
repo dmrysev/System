@@ -1,4 +1,4 @@
-module LinuxUtil.Common.Default
+module System.Common.Default
 
 let Application = {|
     guiEditor = "code"
