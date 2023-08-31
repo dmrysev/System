@@ -5,6 +5,8 @@ open Util.IO.Path
 open NUnit.Framework
 open FsUnit
 
+#nowarn "0988"
+
 [<SetUp>]
 let setUp() =
     Util.IO.Directory.delete (DirectoryPath "/tmp/bf166c83-c6d4-4c31-9f1b-3fd9e24a7a25")

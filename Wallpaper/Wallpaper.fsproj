@@ -1,19 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="BatteryChargeMonitor.fs" />
-    <Compile Include="Program.fs" />
+    <Compile Include="Wallpaper.fs" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Util\FSharpUtil.fsproj" />
     <ProjectReference Include="..\Common\Common.fsproj" />
-    <ProjectReference Include="..\Wallpaper\Wallpaper.fsproj" />
   </ItemGroup>
 
 </Project>
