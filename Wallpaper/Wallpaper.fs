@@ -24,7 +24,7 @@ type State = {
 with static member Default = {
         ImageIndex = -1 }
 
-let startDaemon () =
+let initTask () =
     [ configDirPath; applicationDataDirPath ] |> Seq.iter Util.IO.Directory.ensureExists
     let config = Util.Json.deserializeFile<Config> configFilePath
     let images = config.ImagesSources |> Seq.collect (fun imagesSource ->
@@ -51,13 +51,12 @@ let startDaemon () =
         Util.IO.File.copy imageFilePath currentWallpaperFilepath.Value
         let state: State = { ImageIndex = currentIndex }
         Util.Json.serializeToFile stateAppDataFilePath state
-    setWallpaper currentIndex
-    let nextImage _ = 
+    let nextImage() = 
         currentIndex <-
             if (currentIndex + 1) >= (images |> Util.Seq.lastIndex) then 0
             else currentIndex + 1
         setWallpaper currentIndex
-    let timer = new System.Timers.Timer (config.Delay)
-    timer.Elapsed.Add nextImage
-    timer.AutoReset <- true
-    timer.Enabled <- true
+    async {
+        while true do
+            nextImage()
+            do! Util.Async.sleep config.Delay }
