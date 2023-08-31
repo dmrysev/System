@@ -24,7 +24,7 @@ type State = {
 with static member Default = {
         ImageIndex = -1 }
 
-let init () =
+let startDaemon () =
     [ configDirPath; applicationDataDirPath ] |> Seq.iter Util.IO.Directory.ensureExists
     let config = Util.Json.deserializeFile<Config> configFilePath
     let images = config.ImagesSources |> Seq.collect (fun imagesSource ->
@@ -61,4 +61,3 @@ let init () =
     timer.Elapsed.Add nextImage
     timer.AutoReset <- true
     timer.Enabled <- true
-    timer

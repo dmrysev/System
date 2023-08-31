@@ -13,7 +13,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Util\FSharpUtil.fsproj" />
     <ProjectReference Include="..\Common\Common.fsproj" />
-    <ProjectReference Include="..\Wallpaper\Wallpaper.fsproj" />
   </ItemGroup>
 
 </Project>
