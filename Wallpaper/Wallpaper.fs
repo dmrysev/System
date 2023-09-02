@@ -51,11 +51,15 @@ let initTask () =
         Util.IO.File.copy imageFilePath currentWallpaperFilepath.Value
         let state: State = { ImageIndex = currentIndex }
         Util.Json.serializeToFile stateAppDataFilePath state
-    let nextImage() = 
+    let rec nextImage() = 
         currentIndex <-
             if (currentIndex + 1) >= (images |> Util.Seq.lastIndex) then 0
             else currentIndex + 1
-        setWallpaper currentIndex
+        try setWallpaper currentIndex
+        with error -> 
+            printfn $"{error}"
+            Threading.Thread.Sleep (TimeSpan.FromSeconds(3))
+            nextImage()
     async {
         while true do
             nextImage()
