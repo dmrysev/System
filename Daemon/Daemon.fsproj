@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Battery\Battery.fsproj" />
+    <ProjectReference Include="..\Wallpaper\Wallpaper.fsproj" />
   </ItemGroup>
 
 </Project>
