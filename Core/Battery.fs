@@ -1,4 +1,4 @@
-module SystemUtil.Battery.ChargeMonitor
+module SystemUtil.Battery
 
 open SystemUtil
 open Util.IO.Path

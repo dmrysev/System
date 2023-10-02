@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SystemUpdate", "SystemUpdate\SystemUpdate.fsproj", "{F9163BDE-923B-4745-B185-6B02D0F50D54}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Daemon", "Daemon\Daemon.fsproj", "{CEF4603F-4BEB-4993-A14D-988757E7BE53}"
-EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SessionLock", "SessionLock\SessionLock.fsproj", "{621C1FB6-0AD9-4B3E-B1C8-75A8D2645E99}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SplitFolder", "SplitFolder\SplitFolder.fsproj", "{82F409E1-19A5-48C4-86F7-FCA62E78D0EF}"
@@ -16,8 +14,6 @@ EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Test", "Test\Test.fsproj", "{9DF4ECA1-5907-48CC-8946-1EFD906828AA}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BatchExtract", "BatchExtract\BatchExtract.fsproj", "{E97619C3-46ED-4FAE-A01A-7EC970C79D52}"
-EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Wallpaper", "Wallpaper\Wallpaper.fsproj", "{E5A1FD2F-F352-4627-B405-C81BD8F59857}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,18 +40,6 @@ Global
 		{F9163BDE-923B-4745-B185-6B02D0F50D54}.Release|x64.Build.0 = Release|Any CPU
 		{F9163BDE-923B-4745-B185-6B02D0F50D54}.Release|x86.ActiveCfg = Release|Any CPU
 		{F9163BDE-923B-4745-B185-6B02D0F50D54}.Release|x86.Build.0 = Release|Any CPU
-		{CEF4603F-4BEB-4993-A14D-988757E7BE53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CEF4603F-4BEB-4993-A14D-988757E7BE53}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CEF4603F-4BEB-4993-A14D-988757E7BE53}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{CEF4603F-4BEB-4993-A14D-988757E7BE53}.Debug|x64.Build.0 = Debug|Any CPU
-		{CEF4603F-4BEB-4993-A14D-988757E7BE53}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{CEF4603F-4BEB-4993-A14D-988757E7BE53}.Debug|x86.Build.0 = Debug|Any CPU
-		{CEF4603F-4BEB-4993-A14D-988757E7BE53}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CEF4603F-4BEB-4993-A14D-988757E7BE53}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CEF4603F-4BEB-4993-A14D-988757E7BE53}.Release|x64.ActiveCfg = Release|Any CPU
-		{CEF4603F-4BEB-4993-A14D-988757E7BE53}.Release|x64.Build.0 = Release|Any CPU
-		{CEF4603F-4BEB-4993-A14D-988757E7BE53}.Release|x86.ActiveCfg = Release|Any CPU
-		{CEF4603F-4BEB-4993-A14D-988757E7BE53}.Release|x86.Build.0 = Release|Any CPU
 		{621C1FB6-0AD9-4B3E-B1C8-75A8D2645E99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{621C1FB6-0AD9-4B3E-B1C8-75A8D2645E99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{621C1FB6-0AD9-4B3E-B1C8-75A8D2645E99}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -116,17 +100,5 @@ Global
 		{E97619C3-46ED-4FAE-A01A-7EC970C79D52}.Release|x64.Build.0 = Release|Any CPU
 		{E97619C3-46ED-4FAE-A01A-7EC970C79D52}.Release|x86.ActiveCfg = Release|Any CPU
 		{E97619C3-46ED-4FAE-A01A-7EC970C79D52}.Release|x86.Build.0 = Release|Any CPU
-		{E5A1FD2F-F352-4627-B405-C81BD8F59857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E5A1FD2F-F352-4627-B405-C81BD8F59857}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E5A1FD2F-F352-4627-B405-C81BD8F59857}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{E5A1FD2F-F352-4627-B405-C81BD8F59857}.Debug|x64.Build.0 = Debug|Any CPU
-		{E5A1FD2F-F352-4627-B405-C81BD8F59857}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{E5A1FD2F-F352-4627-B405-C81BD8F59857}.Debug|x86.Build.0 = Debug|Any CPU
-		{E5A1FD2F-F352-4627-B405-C81BD8F59857}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E5A1FD2F-F352-4627-B405-C81BD8F59857}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E5A1FD2F-F352-4627-B405-C81BD8F59857}.Release|x64.ActiveCfg = Release|Any CPU
-		{E5A1FD2F-F352-4627-B405-C81BD8F59857}.Release|x64.Build.0 = Release|Any CPU
-		{E5A1FD2F-F352-4627-B405-C81BD8F59857}.Release|x86.ActiveCfg = Release|Any CPU
-		{E5A1FD2F-F352-4627-B405-C81BD8F59857}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
