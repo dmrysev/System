@@ -1,8 +1,7 @@
 ﻿open SystemUtil
-open SystemUtil.Daemon
 
 printfn "Daemon started"
-[BatteryChargeMonitor.initTask()]
+[Battery.ChargeMonitor.initTask()]
 |> Async.Parallel
 |> Async.RunSynchronously
 |> ignore
