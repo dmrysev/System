@@ -8,6 +8,7 @@
   <ItemGroup>
     <Compile Include="Battery.fs" />
     <Compile Include="Wallpaper.fs" />
+    <Compile Include="DesktopEnvironment.fs" />
   </ItemGroup>
 
   <ItemGroup>

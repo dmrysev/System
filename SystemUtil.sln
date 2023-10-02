@@ -15,6 +15,10 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Test", "Test\Test.fsproj", 
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BatchExtract", "BatchExtract\BatchExtract.fsproj", "{E97619C3-46ED-4FAE-A01A-7EC970C79D52}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{490C02A2-8129-4116-9C1D-B825FA2860C8}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CLI", "UI\Console\CLI.fsproj", "{5D9CCCA7-D226-411E-BA86-36209DCFFA53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,5 +104,20 @@ Global
 		{E97619C3-46ED-4FAE-A01A-7EC970C79D52}.Release|x64.Build.0 = Release|Any CPU
 		{E97619C3-46ED-4FAE-A01A-7EC970C79D52}.Release|x86.ActiveCfg = Release|Any CPU
 		{E97619C3-46ED-4FAE-A01A-7EC970C79D52}.Release|x86.Build.0 = Release|Any CPU
+		{5D9CCCA7-D226-411E-BA86-36209DCFFA53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D9CCCA7-D226-411E-BA86-36209DCFFA53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D9CCCA7-D226-411E-BA86-36209DCFFA53}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5D9CCCA7-D226-411E-BA86-36209DCFFA53}.Debug|x64.Build.0 = Debug|Any CPU
+		{5D9CCCA7-D226-411E-BA86-36209DCFFA53}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5D9CCCA7-D226-411E-BA86-36209DCFFA53}.Debug|x86.Build.0 = Debug|Any CPU
+		{5D9CCCA7-D226-411E-BA86-36209DCFFA53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D9CCCA7-D226-411E-BA86-36209DCFFA53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D9CCCA7-D226-411E-BA86-36209DCFFA53}.Release|x64.ActiveCfg = Release|Any CPU
+		{5D9CCCA7-D226-411E-BA86-36209DCFFA53}.Release|x64.Build.0 = Release|Any CPU
+		{5D9CCCA7-D226-411E-BA86-36209DCFFA53}.Release|x86.ActiveCfg = Release|Any CPU
+		{5D9CCCA7-D226-411E-BA86-36209DCFFA53}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5D9CCCA7-D226-411E-BA86-36209DCFFA53} = {490C02A2-8129-4116-9C1D-B825FA2860C8}
 	EndGlobalSection
 EndGlobal

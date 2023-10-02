@@ -61,8 +61,6 @@ let initTask () =
             Threading.Thread.Sleep (TimeSpan.FromSeconds(3))
             nextImage()
     async {
-        while Common.Environment.isDesktopEnvironmentRunning() |> not do
-            do! Util.Async.sleep (TimeSpan.FromSeconds 1)
         while true do
             nextImage()
             if Util.Environment.WindowManagement.windowWithTitleExists "gui_background" |> not then
