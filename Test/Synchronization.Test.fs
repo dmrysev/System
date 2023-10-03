@@ -1,4 +1,4 @@
-module SystemUtil.Sync.Test
+module SystemUtil.Synchronization.Test
 
 open SystemUtil
 open Util.IO.Path
@@ -26,7 +26,7 @@ let ``If source has files that are not in destination, running sync, must copy t
     Util.IO.File.create (sourceDirPath/FilePath "dir_A/dir_B/file_3")
 
     // ACT
-    Sync.run sourceDirPath destinationDirPath
+    Synchronization.sync sourceDirPath destinationDirPath
     let destinationFiles = Util.IO.Directory.listFilesRecursive destinationDirPath
 
     // ASSERT
@@ -50,7 +50,7 @@ let ``If destination has directories that are not in source, running sync, must 
     Util.IO.Directory.create (sourceDirPath/DirectoryPath "dir_3/dir_5")
 
     // ACT
-    Sync.run sourceDirPath destinationDirPath
+    Synchronization.sync sourceDirPath destinationDirPath
     let destinationDirectories = Util.IO.Directory.listDirectoriesRecursive destinationDirPath
 
     // ASSERT
@@ -79,7 +79,7 @@ let ``If destination has files that are not in source, running sync, must delete
     Util.IO.File.create (sourceDirPath/FilePath "dir_A/dir_B/file_5")
 
     // ACT
-    Sync.run sourceDirPath destinationDirPath
+    Synchronization.sync sourceDirPath destinationDirPath
     let destinationFiles = Util.IO.Directory.listFilesRecursive destinationDirPath
 
     // ASSERT

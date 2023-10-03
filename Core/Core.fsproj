@@ -11,6 +11,10 @@
     <Compile Include="DesktopEnvironment.fs" />
     <Compile Include="Update.fs" />
     <Compile Include="WebBrowser.fs" />
+    <Compile Include="Compression.fs" />
+    <Compile Include="SessionLock.fs" />
+    <Compile Include="FileSystem.fs" />
+    <Compile Include="Synchronization.fs" />
     <Compile Include="Daemon.fs" />
   </ItemGroup>
 

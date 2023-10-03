@@ -1,6 +1,16 @@
-module SystemUtil.Sync
+module SystemUtil.Synchronization
 
 open Util.IO.Path
+open Util.IO.Path
+open CommandLine
+
+[<Verb("sync", HelpText = "Synchronize two directories.")>]
+type Options = {
+    [<Option('s', "source", Required = true, 
+     HelpText = "Source directory path.")>] Source: string 
+
+    [<Option('d', "destination", Required = true, 
+     HelpText = "Destination directory path.")>] Destination: string  }
 
 let removeRedundantDirectoriesInDestination (source: DirectoryPath) (destination: DirectoryPath) =
     let sourceDirectories = 
@@ -34,8 +44,13 @@ let copyMissingFilesToDestination (source: DirectoryPath) (destination: Director
         Util.IO.Directory.create (destFilePath |> FilePath.directoryPath)
         Util.Process.run $"cp -uf '{sourceFilePath.Value}' '{destFilePath.Value}'" )
      
-let run (sourceDirPath: DirectoryPath) (destinationDirPath: DirectoryPath) =
+let sync sourceDirPath destinationDirPath =
     Util.IO.Directory.create destinationDirPath
     removeRedundantDirectoriesInDestination sourceDirPath destinationDirPath
     removeRedundantFilesInDestination sourceDirPath destinationDirPath
     copyMissingFilesToDestination sourceDirPath destinationDirPath
+
+let run (opts: Options) = 
+    let sourceDirPath = opts.Source |> DirectoryPath
+    let destinationDirPath = opts.Destination |> DirectoryPath
+    sync sourceDirPath destinationDirPath
