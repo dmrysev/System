@@ -29,6 +29,7 @@ let initTask() = async {
         while isBigScreenActive() |> not do do! Util.Async.sleep (TimeSpan.FromSeconds 1)
         Util.Process.run "wmctrl -a main_terminal -e 0,300,0,1400,800"
     else Util.Process.run "wmctrl -a main_terminal -e 0,160,0,1100,700"
-    do! Util.Async.sleep (TimeSpan.FromSeconds 3)
-    Util.Process.run "wmctrl -a main_terminal"
+    for i in {0..5} do
+        Util.Process.run "wmctrl -a main_terminal"
+        do! Util.Async.sleep (TimeSpan.FromSeconds 1)
 }
