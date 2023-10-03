@@ -18,6 +18,7 @@ let run (opts: Options) =
         Battery.initTask()
         Wallpaper.initTask()
         DesktopEnvironment.initTask()
+        Update.initTask()
     ]
     |> Async.Parallel
     |> Async.RunSynchronously
