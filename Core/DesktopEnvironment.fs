@@ -24,8 +24,11 @@ let initTask() = async {
         """
     while Util.Environment.WindowManagement.windowWithTitleExists "main_terminal" |> not do
         do! Util.Async.sleep (TimeSpan.FromSeconds 1)
-    if isBigScreenConnected then Util.Process.run "wmctrl -a main_terminal -e 0,300,0,1400,800"
+    if isBigScreenConnected then 
+        let isBigScreenActive() = (Util.Process.execute "xrandr --listactivemonitors") |> Util.String.contains bigScreenOutput
+        while isBigScreenActive() |> not do do! Util.Async.sleep (TimeSpan.FromSeconds 1)
+        Util.Process.run "wmctrl -a main_terminal -e 0,300,0,1400,800"
     else Util.Process.run "wmctrl -a main_terminal -e 0,160,0,1100,700"
-    do! Util.Async.sleep (TimeSpan.FromSeconds 5)
+    do! Util.Async.sleep (TimeSpan.FromSeconds 3)
     Util.Process.run "wmctrl -a main_terminal"
 }
