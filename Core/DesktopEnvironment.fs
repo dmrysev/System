@@ -10,6 +10,7 @@ let smallScreenOutput = "eDP-1"
 let initTask() = async {
     while Util.Environment.XServer.isRunning() |> not do
         do! Util.Async.sleep (TimeSpan.FromSeconds 1)
+    Util.Process.run "xinput --set-prop 'pointer:TPPS/2 IBM TrackPoint' 'libinput Accel Speed' -0.5 &>/dev/null"
     let isBigScreenConnected = (Util.Process.execute "xrandr") |> Util.String.contains $"{bigScreenOutput} connected"
     if isBigScreenConnected then
         Util.Process.run $"""
