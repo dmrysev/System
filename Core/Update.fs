@@ -2,7 +2,6 @@
 
 open SystemUtil
 open Util.IO.Path
-open Newtonsoft.Json
 open System
 open System.IO
 

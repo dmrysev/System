@@ -6,13 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Command/Daemon.fs" />
-    <Compile Include="Command/Daemon2.fs" />
     <Compile Include="Program.fs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="CommandLineParser.FSharp" Version="2.8.0" />
   </ItemGroup>
 
   <ItemGroup>

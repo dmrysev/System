@@ -10,6 +10,8 @@
     <Compile Include="Wallpaper.fs" />
     <Compile Include="DesktopEnvironment.fs" />
     <Compile Include="Update.fs" />
+    <Compile Include="WebBrowser.fs" />
+    <Compile Include="Daemon.fs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,10 +1,10 @@
-module SystemUtil.UI.Console.Command.Daemon2
+module SystemUtil.Daemon
 
 open SystemUtil
 open Util.IO.Path
 open CommandLine
 
-[<Verb("daemon2", HelpText = "Start daemon.")>]
+[<Verb("daemon", HelpText = "Start daemon.")>]
 type Options = { 
     [<Option(Hidden = true)>] PlaceHolder: unit
     
@@ -18,6 +18,7 @@ let run (opts: Options) =
         Battery.initTask()
         Wallpaper.initTask()
         DesktopEnvironment.initTask()
+        Update.initTask()
     ]
     |> Async.Parallel
     |> Async.RunSynchronously

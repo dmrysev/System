@@ -8,6 +8,7 @@
     <Compile Include="Constant.fs" />
     <Compile Include="FileSystem.fs" />
     <Compile Include="Environment.fs" />
+    <Compile Include="GuiApplication.fs" />
     <Compile Include="Default.fs" />
   </ItemGroup>
 
