@@ -1,7 +1,7 @@
 module SystemUtil.Daemon
 
 open SystemUtil
-open Util.IO.Path
+open Util.Path
 open CommandLine
 
 [<Verb("daemon", HelpText = "Start daemon.")>]

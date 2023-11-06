@@ -1,5 +1,5 @@
 ﻿open SystemUtil
-open Util.IO.Path
+open Util.Path
 open System
 
 let createWallpaperConfig() =

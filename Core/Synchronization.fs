@@ -1,7 +1,7 @@
 module SystemUtil.Synchronization
 
-open Util.IO.Path
-open Util.IO.Path
+open Util.Path
+open Util.Path
 open CommandLine
 
 [<Verb("sync", HelpText = "Synchronize two directories.")>]

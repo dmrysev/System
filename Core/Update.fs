@@ -1,7 +1,7 @@
 ﻿module SystemUtil.Update
 
 open SystemUtil
-open Util.IO.Path
+open Util.Path
 open System
 open System.IO
 

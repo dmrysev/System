@@ -1,7 +1,7 @@
 module SystemUtil.Common.FileSystem
 
 open SystemUtil
-open Util.IO.Path
+open Util.Path
 
 let applicationDataDirPath = Util.Environment.SpecialFolder.applicationData/DirectoryName Common.Constant.applicationName
 let configDirPath = Util.Environment.SpecialFolder.home/DirectoryPath $"repo/dmrysev/platform/config/{Common.Constant.applicationName}"

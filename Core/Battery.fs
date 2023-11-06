@@ -1,7 +1,7 @@
 module SystemUtil.Battery
 
 open SystemUtil
-open Util.IO.Path
+open Util.Path
 
 let checkBatteryCharge() =   
     let batteryWithHighestCharge =        

@@ -1,7 +1,7 @@
 module SystemUtil.Synchronization.Test
 
 open SystemUtil
-open Util.IO.Path
+open Util.Path
 open NUnit.Framework
 open FsUnit
 

@@ -1,6 +1,6 @@
 module SystemUtil.Common.Environment
 
 open SystemUtil
-open Util.IO.Path
+open Util.Path
 
 let isDesktopEnvironmentRunning() = Util.Process.isRunningWithName "openbox"

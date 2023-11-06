@@ -1,7 +1,7 @@
 ﻿module SystemUtil.FileSystem
 
 open CommandLine
-open Util.IO.Path
+open Util.Path
 
 module SplitFolder =
     [<Verb("split-folder", HelpText = "Split folder into chunks.")>]
@@ -15,7 +15,7 @@ module SplitFolder =
         Util.IO.Directory.create chunkDestDirPath
         for filePath in filePaths do 
             let destFilePath = chunkDestDirPath/(filePath |> FilePath.fileName)
-            Util.IO.File.copy filePath destFilePath.Value
+            Util.IO.File.copy filePath destFilePath
 
     let rec splitFiles (filePaths: FilePath seq) (destDirPath: DirectoryPath) chunkSize iteration =
         let copyFilesChunk = copyFilesChunk destDirPath iteration
@@ -30,7 +30,10 @@ module SplitFolder =
             splitFiles filePaths destDirPath chunkSize iteration
 
     let run (opts: Options) = 
-        let sourceDirPath = Util.IO.Path.realPath opts.Source |> DirectoryPath
+        let sourceDirPath = 
+            opts.Source 
+            |> DirectoryPath
+            |> Util.IO.Directory.realPath
         let dirName = sourceDirPath |> DirectoryPath.directoryName
         let destinationDirName = $"{dirName.Value}_split"
         let destinationDirPath = sourceDirPath |> DirectoryPath.setHeadDirectoryName destinationDirName

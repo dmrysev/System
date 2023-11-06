@@ -1,7 +1,7 @@
 ﻿module SystemUtil.Wallpaper
 
 open SystemUtil
-open Util.IO.Path
+open Util.Path
 open System
 
 let configDirPath = Common.FileSystem.configDirPath/DirectoryName "wallpaper"
@@ -48,7 +48,7 @@ let initTask () =
     let setWallpaper index =
         let imageFilePath = images |> Seq.item currentIndex
         Util.Process.run $"feh --bg-max '{imageFilePath.Value}'"
-        Util.IO.File.copy imageFilePath currentWallpaperFilepath.Value
+        Util.IO.File.copy imageFilePath currentWallpaperFilepath
         let state: State = { ImageIndex = currentIndex }
         Util.Json.serializeToFile stateAppDataFilePath state
     let rec nextImage() = 

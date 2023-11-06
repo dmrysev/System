@@ -1,7 +1,7 @@
 ﻿module SystemUtil.WebBrowser
 
 open SystemUtil
-open Util.IO.Path
+open Util.Path
 open CommandLine
 open System
 

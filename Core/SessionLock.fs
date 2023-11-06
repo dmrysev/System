@@ -1,6 +1,6 @@
 ﻿module SystemUtil.SessionLock
 
-open Util.IO.Path
+open Util.Path
 open CommandLine
 
 [<Verb("session-lock", HelpText = "Lock session for current user.")>]

@@ -1,7 +1,7 @@
 ﻿module SystemUtil.DesktopEnvironment
 
 open SystemUtil
-open Util.IO.Path
+open Util.Path
 open System
 
 let bigScreenOutput = "HDMI-1"

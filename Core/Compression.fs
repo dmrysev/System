@@ -1,6 +1,6 @@
 ﻿module SystemUtil.Compression
 
-open Util.IO.Path
+open Util.Path
 open CommandLine
 
 module BatchExtract =
@@ -14,9 +14,15 @@ module BatchExtract =
         Output: string }
 
     let run (opts: Options) = 
-        let sourceDirPath = opts.Source |> Util.IO.Path.realPath |> DirectoryPath
+        let sourceDirPath = 
+            opts.Source
+             |> DirectoryPath
+             |> Util.IO.Directory.realPath
         let outputDirPath = 
-            if opts.Output <> "" then opts.Output |> Util.IO.Path.realPath |> DirectoryPath
+            if opts.Output <> "" then 
+                opts.Output
+                 |> DirectoryPath
+                 |> Util.IO.Directory.realPath
             else sourceDirPath
         Util.IO.Directory.ensureExists outputDirPath
         Util.IO.Directory.listFiles sourceDirPath
