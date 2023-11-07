@@ -26,7 +26,9 @@ with static member Default = {
 
 let initTask () =
     [ configDirPath; applicationDataDirPath ] |> Seq.iter Util.IO.Directory.ensureExists
-    let config = Util.Json.deserializeFile<Config> configFilePath
+    let config = 
+        Util.IO.File.readAllText configFilePath
+        |> Util.Json.fromJson<Config>
     let images = config.ImagesSources |> Seq.collect (fun imagesSource ->
         match imagesSource with
         | Directory dirPath -> 
@@ -41,7 +43,9 @@ let initTask () =
             else images )
     let lastState = 
         if Util.IO.File.exists stateAppDataFilePath |> not then State.Default
-        else Util.Json.deserializeFile<State> stateAppDataFilePath
+        else
+            Util.IO.File.readAllText stateAppDataFilePath
+            |> Util.Json.fromJson<State>
     let mutable currentIndex = 
         if config.ResumeLastState then lastState.ImageIndex
         else -1
@@ -50,7 +54,8 @@ let initTask () =
         Util.Process.run $"feh --bg-max '{imageFilePath.Value}'"
         Util.IO.File.copy imageFilePath currentWallpaperFilepath
         let state: State = { ImageIndex = currentIndex }
-        Util.Json.serializeToFile stateAppDataFilePath state
+        Util.Json.toJson state
+        |> Util.IO.File.writeText stateAppDataFilePath
     let rec nextImage() = 
         currentIndex <-
             if (currentIndex + 1) >= (images |> Util.Seq.lastIndex) then 0

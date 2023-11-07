@@ -13,11 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../Util/FSharpUtil.fsproj" />
+    <PackageReference Include="CommandLineParser.FSharp" Version="2.8.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommandLineParser.FSharp" Version="2.8.0" />
+    <ProjectReference Include="..\Util\IO\FSharpUtil.IO.fsproj" />
   </ItemGroup>
 
 </Project>

@@ -16,7 +16,9 @@ let initTask () = async {
         if not <| Util.IO.File.exists appDataFilePath then true
         else 
             let currentDateTime = System.DateTime.Now
-            let data = Util.Json.deserializeFile<AppData> appDataFilePath
+            let data = 
+                Util.IO.File.readAllText appDataFilePath
+                |> Util.Json.fromJson<AppData>
             (currentDateTime - data.LastUpdate).TotalDays >= 7.0
     if needsUpdate then
         while Util.Environment.XServer.isRunning() |> not do
@@ -28,5 +30,6 @@ let initTask () = async {
         })
         Util.Process.run "xterm -T system_update -e 'sudo pacman -S archlinux-keyring && sudo pacman -Syu; read -p \"Press enter to continue\"'"
         let appData: AppData = { LastUpdate = System.DateTime.Now }
-        Util.Json.serializeToFile appDataFilePath appData
+        Util.Json.toJson appData
+        |> Util.IO.File.writeText appDataFilePath
 }
