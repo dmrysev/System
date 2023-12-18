@@ -8,5 +8,5 @@ type Options = {
     [<Option(Hidden = true)>] PlaceHolder: unit }
 
 let run (opts: Options) = 
-    if Util.Environment.XServer.isRunning() then Util.Process.executeNoOutput "xsecurelock"
+    if Util.IO.Environment.XServer.isRunning() then Util.Process.executeNoOutput "xsecurelock"
     else Util.Process.executeNoOutput "vlock"
