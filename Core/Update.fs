@@ -21,10 +21,10 @@ let initTask () = async {
                 |> Util.Json.fromJson<AppData>
             (currentDateTime - data.LastUpdate).TotalDays >= 7.0
     if needsUpdate then
-        while Util.Environment.XServer.isRunning() |> not do
+        while Util.IO.Environment.XServer.isRunning() |> not do
             do! Util.Async.sleep (TimeSpan.FromSeconds 1)
         Async.Start(async {
-            while Util.Environment.WindowManagement.windowWithTitleExists "system_update" |> not do
+            while Util.IO.Environment.WindowManagement.windowWithTitleExists "system_update" |> not do
                 do! Util.Async.sleep (TimeSpan.FromSeconds 1)
             Util.Process.run "wmctrl -a system_update"
         })
