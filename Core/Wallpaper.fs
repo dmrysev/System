@@ -68,9 +68,9 @@ let initTask () =
     async {
         while true do
             nextImage()
-            if Util.IO.Environment.WindowManagement.windowWithTitleExists "gui_background" |> not then
+            if Util.Environment.WindowManagement.windowWithTitleExists "gui_background" |> not then
                 Util.Process.run "feh --title=gui_background -ZFYr /tmp/current_wallpaper &"
-                while Util.IO.Environment.WindowManagement.windowWithTitleExists "gui_background" |> not do
+                while Util.Environment.WindowManagement.windowWithTitleExists "gui_background" |> not do
                     do! Util.Async.sleep (TimeSpan.FromMilliseconds 100)
-                Util.IO.Environment.WindowManagement.setNoTaskbar "gui_background"
+                Util.Environment.WindowManagement.setNoTaskbar "gui_background"
             do! Util.Async.sleep config.Delay }

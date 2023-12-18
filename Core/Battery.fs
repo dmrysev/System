@@ -5,7 +5,7 @@ open Util.Path
 
 let checkBatteryCharge() =   
     let batteryWithHighestCharge =        
-        Util.IO.Environment.BatteryInfo.getBatteryInfo()
+        Util.Environment.BatteryInfo.getBatteryInfo()
         |> Seq.sortByDescending (fun x -> x.Charge)
         |> Seq.head
     let warningMessageFilePath = 
@@ -14,7 +14,7 @@ let checkBatteryCharge() =
     let warningMessage = $"[WARNING] Remaining battery level {batteryWithHighestCharge.Charge}%%"
     Util.IO.File.writeText warningMessageFilePath warningMessage
     if batteryWithHighestCharge.Charge < 10 then 
-        if Util.IO.Environment.XServer.isRunning() then
+        if Util.Environment.XServer.isRunning() then
             let editor = Common.Default.Application.guiEditor
             Util.Process.executeNoOutput $"{editor} {warningMessageFilePath.Value}"
         else printfn $"{warningMessage}"
