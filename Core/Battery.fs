@@ -10,7 +10,7 @@ let checkBatteryCharge() =
         |> Seq.head
     let warningMessageFilePath = 
         let guid = Util.Guid.generate()
-        Util.IO.Environment.SpecialFolder.temporary/FileName guid
+        Util.Environment.SpecialFolder.temporary/FileName guid
     let warningMessage = $"[WARNING] Remaining battery level {batteryWithHighestCharge.Charge}%%"
     Util.IO.File.writeText warningMessageFilePath warningMessage
     if batteryWithHighestCharge.Charge < 10 then 
