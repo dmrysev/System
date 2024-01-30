@@ -16,20 +16,24 @@ let initTask() = async {
         Util.Process.run $"""
             xrandr --output {bigScreenOutput} --auto --primary
             xrandr --output {smallScreenOutput} --off
-            xinput --set-prop 'pointer:MX Ergo Mouse' 'libinput Accel Speed' -0.3 > /dev/null 2>&1
-        """
+            xinput --set-prop 'pointer:MX Ergo Mouse' 'libinput Accel Speed' -0.3 > /dev/null 2>&1"""
     else
         Util.Process.run $"""
-            xrandr --output {smallScreenOutput} --auto --primary
-        """
+            xrandr --output {smallScreenOutput} --auto --primary"""
     while Util.IO.Environment.WindowManagement.windowWithTitleExists "main_terminal" |> not do
         do! Util.Async.sleep (TimeSpan.FromSeconds 1)
     if isBigScreenConnected then 
         let isBigScreenActive() = (Util.Process.execute "xrandr --listactivemonitors") |> Util.String.contains bigScreenOutput
         while isBigScreenActive() |> not do do! Util.Async.sleep (TimeSpan.FromSeconds 1)
-        Util.Process.run "wmctrl -a main_terminal -e 0,300,0,1400,800"
+        for i in {0..5} do
+            Util.Process.run """
+                wmctrl -a main_terminal -e 0,300,0,1400,800
+                wmctrl -a Media.GUI.Avalonia -e 0,600,200,600,600"""
+            do! Util.Async.sleep (TimeSpan.FromSeconds 1)
     else Util.Process.run "wmctrl -a main_terminal -e 0,160,0,1100,700"
     for i in {0..5} do
-        Util.Process.run "wmctrl -a main_terminal"
+        Util.Process.run """
+            wmctrl -a main_terminal
+            wmctrl -a system_update"""
         do! Util.Async.sleep (TimeSpan.FromSeconds 1)
 }
