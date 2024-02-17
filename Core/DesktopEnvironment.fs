@@ -28,12 +28,18 @@ let initTask() = async {
         for i in {0..5} do
             Util.Process.run """
                 wmctrl -a main_terminal -e 0,300,0,1400,800
-                wmctrl -a Media.GUI.Avalonia -e 0,600,200,600,600"""
+                wmctrl -a Media.Application.Avalonia -e 0,600,200,600,600
+                wmctrl -a main_terminal
+                wmctrl -a system_update"""
             do! Util.Async.sleep (TimeSpan.FromSeconds 1)
-    else Util.Process.run "wmctrl -a main_terminal -e 0,160,0,1100,700"
-    for i in {0..5} do
-        Util.Process.run """
-            wmctrl -a main_terminal
-            wmctrl -a system_update"""
-        do! Util.Async.sleep (TimeSpan.FromSeconds 1)
+    else 
+        let isSmallScreenActive() = (Util.Process.execute "xrandr --listactivemonitors") |> Util.String.contains smallScreenOutput
+        while isSmallScreenActive() |> not do do! Util.Async.sleep (TimeSpan.FromSeconds 1)
+        for i in {0..5} do
+            Util.Process.run """
+                wmctrl -a main_terminal -e 0,160,0,1100,700
+                wmctrl -a Media.Application.Avalonia -e 0,400,100,600,600
+                wmctrl -a main_terminal
+                wmctrl -a system_update"""
+            do! Util.Async.sleep (TimeSpan.FromSeconds 1)
 }
